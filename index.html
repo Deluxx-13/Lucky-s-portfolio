@@ -1,982 +1,234 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Christian B. De Castro | Personal Portfolio</title>
-    
-    <!-- Tailwind CSS CDN for sleek, responsive styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons for Socials, Carousels & UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        deepBlack: '#0a0a0f',
-                        cardDark: '#111827',
-                        electricBlue: '#3b82f6',
-                        cyberBlue: '#1d4ed8',
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky De Castro | Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#070b14',
+              card: '#0f172a',
+              cardLight: '#1e293b',
+              accent: '#3b82f6',
+              accentHover: '#1d4ed8',
+              glow: 'rgba(59, 130, 246, 0.4)'
             }
+          }
         }
-    </script>
-
-    <style>
-        body {
-            background-color: #0a0a0f;
-            color: #f8fafc;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Subtle Ambient Blue Grid & Glow Background */
-        .bg-cyber-grid {
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.16) 0%, transparent 60%),
-                linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
-        }
-
-        /* Glowing Blue Hover & Active States */
-        .blue-glow {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
-        }
-        .blue-glow-hover:hover {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.55);
-            border-color: #60a5fa;
-            transform: translateY(-2px);
-        }
-
-        /* Drag-and-Drop Active Highlight */
-        .drag-over {
-            border-color: #60a5fa !important;
-            background-color: rgba(59, 130, 246, 0.18) !important;
-            box-shadow: 0 0 35px rgba(59, 130, 246, 0.65) !important;
-            transform: scale(1.02);
-        }
-
-        /* Smooth Carousel Slide Animation */
-        .carousel-slide {
-            display: none;
-            animation: fadeSlide 0.35s ease-out forwards;
-        }
-        .carousel-slide.active {
-            display: block;
-        }
-        @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateX(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3b82f6;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070b14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e3a8a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3b82f6;
+    }
+    .neon-border {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+    }
+  </style>
 </head>
-<body class="bg-cyber-grid min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+<body class="bg-brand-black text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-blue-600 selection:text-white">
 
-    <!-- Toast Notification Banner (No alert() used) -->
-    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900/95 border border-blue-500 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 transition-all duration-300 blue-glow">
-        <i class="fa-solid fa-circle-check text-blue-400 text-lg"></i>
-        <span id="toast-message" class="text-sm font-medium">Updated successfully!</span>
+  <!-- ========================================== -->
+  <!-- 1. NAVIGATION BAR (Shortcut Buttons)       -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-blue-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#hero" class="text-2xl font-black tracking-wider text-white flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-blue-500 animate-ping"></span>
+        <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">LUCKY</span>
+      </a>
+
+      <!-- Desktop Shortcut Buttons -->
+      <nav class="hidden md:flex items-center gap-2">
+        <a href="#hero" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-blue-950/60 rounded-lg transition-all duration-200">
+          <i class="fa-solid fa-user-astronaut mr-1.5 text-blue-400"></i> Profile
+        </a>
+        <a href="#certificates" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-blue-950/60 rounded-lg transition-all duration-200">
+          <i class="fa-solid fa-award mr-1.5 text-blue-400"></i> Certificates
+        </a>
+        <a href="#experience" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-blue-950/60 rounded-lg transition-all duration-200">
+          <i class="fa-solid fa-briefcase mr-1.5 text-blue-400"></i> Experience
+        </a>
+        <a href="#contact" class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-blue-950/60 rounded-lg transition-all duration-200">
+          <i class="fa-solid fa-paper-plane mr-1.5 text-blue-400"></i> Contact
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
     </div>
 
-    <!-- =====================================================================
-         1. STICKY TOP NAVIGATION PANEL (SHORTCUT BUTTONS)
-         ===================================================================== -->
-    <header class="sticky top-0 z-40 backdrop-blur-md bg-[#0a0a0f]/85 border-b border-blue-500/20">
-        <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
-            <!-- Brand / Logo -->
-            <a href="#profile" class="flex items-center gap-2.5 group focus:outline-none">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-blue-600/30 group-hover:scale-105 transition">
-                    LC
-                </div>
-                <div>
-                    <span class="font-bold text-white tracking-tight block leading-none">Lucky Christian</span>
-                    <span class="text-xs text-blue-400 font-medium">BSIT Portfolio</span>
-                </div>
-            </a>
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-black/95 border-b border-blue-900/50 px-4 py-4 space-y-2">
+      <a href="#hero" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Profile</a>
+      <a href="#certificates" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Certificates</a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Experience</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Contact</a>
+    </div>
+  </header>
 
-            <!-- Navigation Shortcut Buttons -->
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-                <a href="#profile" class="nav-shortcut px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900/90 text-slate-200 border border-blue-500/30 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition duration-200 flex items-center gap-2 blue-glow-hover">
-                    <i class="fa-solid fa-user text-blue-400"></i>
-                    <span>Profile</span>
-                </a>
-                <a href="#certificates" class="nav-shortcut px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900/90 text-slate-200 border border-blue-500/30 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition duration-200 flex items-center gap-2 blue-glow-hover">
-                    <i class="fa-solid fa-award text-blue-400"></i>
-                    <span>Certificates</span>
-                </a>
-                <a href="#experience" class="nav-shortcut px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900/90 text-slate-200 border border-blue-500/30 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition duration-200 flex items-center gap-2 blue-glow-hover">
-                    <i class="fa-solid fa-briefcase text-blue-400"></i>
-                    <span>Credentials</span>
-                </a>
-                <a href="#contact" class="nav-shortcut px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 text-white border border-blue-400 hover:bg-blue-500 transition duration-200 flex items-center gap-2 shadow-lg shadow-blue-600/30">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>Contact Info</span>
-                </a>
-            </div>
-        </nav>
-    </header>
+  <!-- ========================================== -->
+  <!-- 2. HERO / PROFILE SECTION                  -->
+  <!-- ========================================== -->
+  <section id="hero" class="pt-32 pb-20 md:py-40 relative flex items-center min-h-[90vh]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(37,99,235,0.15),transparent_60%)] pointer-events-none"></div>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-24 flex-grow w-full">
-
-        <!-- =====================================================================
-             2. HERO / PROFILE PICTURE SECTION (#profile)
-             ===================================================================== -->
-        <section id="profile" class="scroll-mt-24 pt-4">
-            <div class="bg-[#111827]/90 border border-blue-500/30 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl blue-glow relative overflow-hidden">
-                <!-- Decorative Top-Right Blue Blur -->
-                <div class=" -top-24 -right-24 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12 relative z-10">
-                    
-                    <!-- DRAG-AND-DROP PROFILE PICTURE UPLOADER -->
-                    <div class="flex flex-col items-center shrink-0">
-                        <div id="profile-drop-zone" 
-                             class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full border-4 border-dashed border-blue-500/70 bg-slate-950 p-1.5 cursor-pointer group transition-all duration-300 blue-glow-hover flex items-center justify-center overflow-hidden"
-                             title="Drag & Drop your profile photo here or click to browse">
-                            
-                            <!-- =========================================================
-                                 HARDCODE HERE: PROFILE PICTURE
-                                 Replace the src="..." URL below with your own image file path!
-                                 Example: src="profile.jpg" or src="images/my-photo.png"
-                                 ========================================================= -->
-                            <img id="profile-preview" 
-                                 src="https://placehold.co/400x400/0f172a/3b82f6?text=Lucky+De+Castro" 
-                                 onerror="this.src='https://placehold.co/400x400/0f172a/3b82f6?text=Profile+Photo'"
-                                 alt="Lucky Christian B. De Castro Profile Picture" 
-                                 class="w-full h-full object-cover rounded-full transition duration-300 group-hover:opacity-35">
-
-                            <!-- Hover / Drag Overlay Instructions -->
-                            <div class="inset-0 absolute flex flex-col items-center justify-center text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-950/75 rounded-full">
-                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-blue-400 mb-1.5"></i>
-                                <p class="text-xs font-semibold text-white leading-tight">Drag & Drop Photo</p>
-                                <p class="text-[11px] text-blue-300 mt-0.5">or click to browse</p>
-                            </div>
-
-                            <!-- Hidden File Input for Click-to-Upload -->
-                            <input type="file" id="profile-file-input" accept="image/*" class="hidden">
-                        </div>
-
-                        <div class="mt-3 flex items-center gap-2 text-xs text-slate-400 bg-slate-900/90 px-3.5 py-1.5 rounded-full border border-slate-800">
-                            <i class="fa-solid fa-hand-pointer text-blue-400"></i>
-                            <span>Drop image inside circle or click to change</span>
-                        </div>
-                    </div>
-
-                    <!-- BIO & PERSONAL DETAILS -->
-                    <div class="text-center md:text-left space-y-4 flex-1">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide uppercase">
-                            <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-                            Available for Opportunities & Collaborations
-                        </div>
-
-                        <!-- =========================================================
-                             HARDCODE HERE: NAME & SUBTITLE
-                             ========================================================= -->
-                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                            Lucky Christian B. <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">De Castro</span>
-                        </h1>
-
-                        <p class="text-lg sm:text-xl font-semibold text-blue-400 flex items-center justify-center md:justify-start gap-2">
-                            <i class="fa-solid fa-code text-base"></i>
-                            <span>BSIT Student &amp; Web Developer</span>
-                        </p>
-
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-                            Passionate Bachelor of Science in Information Technology student at the <strong class="text-white">Polytechnic University of the Philippines (PUP)</strong> with a strong academic record (GWA: 1.10). Actively building modern web applications and contributing to tech communities including AWS Cloud Club PUP, GDG on Campus PUP, and Famiglia iBITS.
-                        </p>
-
-                        <!-- Quick Stats / Badges -->
-                        <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
-                            <div class="bg-slate-900/90 border border-blue-500/25 px-4 py-2 rounded-xl text-xs sm:text-sm">
-                                <span class="text-slate-400 block text-[11px]">University</span>
-                                <span class="font-bold text-white">PUP - CCIS</span>
-                            </div>
-                            <div class="bg-slate-900/90 border border-blue-500/25 px-4 py-2 rounded-xl text-xs sm:text-sm">
-                                <span class="text-slate-400 block text-[11px]">Academic Standing</span>
-                                <span class="font-bold text-blue-400">1.10 GWA (President's Lister)</span>
-                            </div>
-                            <div class="bg-slate-900/90 border border-blue-500/25 px-4 py-2 rounded-xl text-xs sm:text-sm">
-                                <span class="text-slate-400 block text-[11px]">Focus</span>
-                                <span class="font-bold text-white">Web Dev &amp; Cloud</span>
-                            </div>
-                        </div>
-
-                        <!-- Quick Jump CTA Buttons -->
-                        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
-                            <a href="#certificates" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition flex items-center gap-2 shadow-lg shadow-blue-600/30">
-                                <i class="fa-solid fa-certificate"></i>
-                                <span>View Certificates</span>
-                            </a>
-                            <a href="#experience" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-blue-500/40 font-semibold text-sm transition flex items-center gap-2 blue-glow-hover">
-                                <i class="fa-solid fa-layer-group text-blue-400"></i>
-                                <span>Explore Credentials</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================================
-             3. CERTIFICATES SECTION (#certificates) - CAROUSEL + DRAG & DROP
-             ===================================================================== -->
-        <section id="certificates" class="scroll-mt-24 space-y-6">
-            <!-- Section Header -->
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-blue-500/20 pb-4">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Verified Achievements</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 flex items-center gap-3">
-                        <i class="fa-solid fa-award text-blue-500"></i>
-                        <span>Certificates Showcase</span>
-                    </h2>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400">
-                    Click <strong class="text-blue-400">Prev</strong> or <strong class="text-blue-400">Next</strong> to cycle through certificates, or drop new ones below.
-                </p>
-            </div>
-
-            <!-- Main Certificates Card Container -->
-            <div class="bg-[#111827]/90 border border-blue-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl blue-glow space-y-6">
-                
-                <!-- DRAG-AND-DROP CERTIFICATE UPLOADER BAR -->
-                <div class="bg-slate-950/90 border-2 border-dashed border-blue-500/50 rounded-2xl p-4 sm:p-5 transition-all duration-300" id="cert-drop-zone">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="flex items-center gap-4 text-center md:text-left flex-col sm:flex-row">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 shrink-0">
-                                <i class="fa-solid fa-file-arrow-up text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-sm sm:text-base font-bold text-white">Drag &amp; Drop Certificate Image Here</h3>
-                                <p class="text-xs text-slate-400 mt-0.5">
-                                    Drop any certificate image (<code class="text-blue-300">.jpg, .png, .webp</code>) to display it in the carousel immediately.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Upload Mode Toggle & Browse Button -->
-                        <div class="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
-                            <input type="text" id="custom-cert-title" placeholder="Optional Certificate Title..." 
-                                   class="bg-slate-900 border border-slate-700 focus:border-blue-500 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none w-48">
-                            
-                            <select id="cert-upload-mode" class="bg-slate-900 border border-blue-500/40 text-slate-200 text-xs rounded-xl px-3 py-2 focus:outline-none">
-                                <option value="add">Add as New Slide</option>
-                                <option value="replace">Replace Current Slide</option>
-                            </select>
-
-                            <button type="button" id="cert-browse-btn" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-md shadow-blue-600/20">
-                                <i class="fa-solid fa-folder-open"></i>
-                                <span>Choose Image</span>
-                            </button>
-                            <input type="file" id="cert-file-input" accept="image/*" multiple class="hidden">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CERTIFICATE CAROUSEL VIEWPORT -->
-                <div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-4 sm:p-6 overflow-hidden">
-                    
-                    <!-- Slide Counter Badge -->
-                    <div class="flex items-center justify-between mb-4">
-                        <span id="cert-counter-badge" class="px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-bold">
-                            Certificate 1 of 3
-                        </span>
-                        <span class="text-xs text-slate-400 hidden sm:inline">
-                            <i class="fa-solid fa-circle-info text-blue-400 mr-1"></i>Use buttons below to navigate
-                        </span>
-                    </div>
-
-                    <!-- =========================================================
-                         HARDCODE HERE: CERTIFICATE SLIDES
-                         To permanently hardcode your certificate images, replace the
-                         src="..." attribute inside each <img> tag below with your file name
-                         (e.g., src="datacamp-certificate.jpg").
-                         ========================================================= -->
-                    <div id="cert-slides-container" class="min-h-[320px] sm:min-h-[400px] flex items-center justify-center">
-                        
-                        <!-- Certificate Slide 1 -->
-                        <div class="carousel-slide active w-full" data-cert-index="0">
-                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                                <div class="lg:col-span-3 bg-slate-900 rounded-xl overflow-hidden border border-blue-500/30 shadow-lg flex items-center justify-center h-64 sm:h-80">
-                                    <!-- HARDCODE HERE: Certificate 1 Image Path -->
-                                    <img src="https://placehold.co/900x600/0f172a/3b82f6?text=DataCamp+Donates+Scholarship+Certificate" 
-                                         onerror="this.src='https://placehold.co/900x600/0f172a/3b82f6?text=Certificate+1'"
-                                         alt="DataCamp Donates Scholarship Certificate" 
-                                         class="w-full h-full object-contain p-2">
-                                </div>
-                                <div class="lg:col-span-2 space-y-3 text-left">
-                                    <div class="inline-block px-3 py-1 rounded-lg bg-blue-600/20 text-blue-400 text-xs font-semibold">
-                                        Data Science &amp; Analytics
-                                    </div>
-                                    <!-- HARDCODE HERE: Certificate 1 Title -->
-                                    <h3 class="text-xl sm:text-2xl font-bold text-white">DataCamp Donates Scholarship Certificate</h3>
-                                    <!-- HARDCODE HERE: Certificate 1 Issuer & Description -->
-                                    <p class="text-sm text-slate-300 leading-relaxed">
-                                        Awarded a full scholarship access to DataCamp's curriculum covering Python, SQL, Data Analysis, and modern Web &amp; Data engineering tracks.
-                                    </p>
-                                    <div class="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                                        <div><strong class="text-slate-200">Issued by:</strong> DataCamp &amp; Partner Community</div>
-                                        <div><strong class="text-slate-200">Recipient:</strong> Lucky Christian B. De Castro</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Certificate Slide 2 -->
-                        <div class="carousel-slide w-full" data-cert-index="1">
-                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                                <div class="lg:col-span-3 bg-slate-900 rounded-xl overflow-hidden border border-blue-500/30 shadow-lg flex items-center justify-center h-64 sm:h-80">
-                                    <!-- HARDCODE HERE: Certificate 2 Image Path -->
-                                    <img src="https://placehold.co/900x600/0f172a/60a5fa?text=Cisco+Networking+Academy+Certificate" 
-                                         onerror="this.src='https://placehold.co/900x600/0f172a/60a5fa?text=Certificate+2'"
-                                         alt="Cisco Networking Academy Certificate" 
-                                         class="w-full h-full object-contain p-2">
-                                </div>
-                                <div class="lg:col-span-2 space-y-3 text-left">
-                                    <div class="inline-block px-3 py-1 rounded-lg bg-blue-600/20 text-blue-400 text-xs font-semibold">
-                                        Networking &amp; Cybersecurity
-                                    </div>
-                                    <!-- HARDCODE HERE: Certificate 2 Title -->
-                                    <h3 class="text-xl sm:text-2xl font-bold text-white">Cisco Networking Academy Certificate</h3>
-                                    <!-- HARDCODE HERE: Certificate 2 Issuer & Description -->
-                                    <p class="text-sm text-slate-300 leading-relaxed">
-                                        Successfully completed foundational modules in computer networking, routing protocols, network security, and cloud infrastructure fundamentals.
-                                    </p>
-                                    <div class="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                                        <div><strong class="text-slate-200">Issued by:</strong> Cisco Networking Academy</div>
-                                        <div><strong class="text-slate-200">Recipient:</strong> Lucky Christian B. De Castro</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Certificate Slide 3 -->
-                        <div class="carousel-slide w-full" data-cert-index="2">
-                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                                <div class="lg:col-span-3 bg-slate-900 rounded-xl overflow-hidden border border-blue-500/30 shadow-lg flex items-center justify-center h-64 sm:h-80">
-                                    <!-- HARDCODE HERE: Certificate 3 Image Path -->
-                                    <img src="https://placehold.co/900x600/0f172a/93c5fd?text=DTI+x+Google+Career+Certificate" 
-                                         onerror="this.src='https://placehold.co/900x600/0f172a/93c5fd?text=Certificate+3'"
-                                         alt="DTI x Google Career Certificate" 
-                                         class="w-full h-full object-contain p-2">
-                                </div>
-                                <div class="lg:col-span-2 space-y-3 text-left">
-                                    <div class="inline-block px-3 py-1 rounded-lg bg-blue-600/20 text-blue-400 text-xs font-semibold">
-                                        Google Career Readiness
-                                    </div>
-                                    <!-- HARDCODE HERE: Certificate 3 Title -->
-                                    <h3 class="text-xl sm:text-2xl font-bold text-white">DTI x Google Career Certificate</h3>
-                                    <!-- HARDCODE HERE: Certificate 3 Issuer & Description -->
-                                    <p class="text-sm text-slate-300 leading-relaxed">
-                                        Recognized for completing professional IT and digital skills training offered through the Department of Trade and Industry (DTI) and Google Career Certificates program.
-                                    </p>
-                                    <div class="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                                        <div><strong class="text-slate-200">Issued by:</strong> DTI Philippines &amp; Google</div>
-                                        <div><strong class="text-slate-200">Recipient:</strong> Lucky Christian B. De Castro</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- CAROUSEL CONTROLS (PREV / INDICATORS / NEXT) -->
-                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
-                        <button type="button" id="cert-prev-btn" 
-                                class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm border border-blue-500/40 transition flex items-center gap-2 blue-glow-hover">
-                            <i class="fa-solid fa-chevron-left"></i>
-                            <span>Prev</span>
-                        </button>
-
-                        <!-- Dynamic Dot Indicators -->
-                        <div id="cert-indicators" class="flex items-center gap-2"></div>
-
-                        <button type="button" id="cert-next-btn" 
-                                class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm border border-blue-400 transition flex items-center gap-2 shadow-lg shadow-blue-600/30">
-                            <span>Next</span>
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================================
-             4. CREDENTIALS / EXPERIENCE SECTION (#experience) - CAROUSEL DESIGN
-             ===================================================================== -->
-        <section id="experience" class="scroll-mt-24 space-y-6">
-            <!-- Section Header -->
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-blue-500/20 pb-4">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Academic &amp; Leadership Track</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 flex items-center gap-3">
-                        <i class="fa-solid fa-briefcase text-blue-500"></i>
-                        <span>Credentials &amp; Experience</span>
-                    </h2>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400">
-                    Use the <strong class="text-blue-400">Prev</strong> and <strong class="text-blue-400">Next</strong> buttons to browse organizations and education.
-                </p>
-            </div>
-
-            <!-- Experience Carousel Container -->
-            <div class="bg-[#111827]/90 border border-blue-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl blue-glow">
-                
-                <!-- Top Bar Counter -->
-                <div class="flex items-center justify-between mb-6">
-                    <span id="exp-counter-badge" class="px-3.5 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-bold">
-                        Credential 1 of 4
-                    </span>
-                    <span class="text-xs text-slate-400">Polytechnic University of the Philippines</span>
-                </div>
-
-                <!-- =========================================================
-                     HARDCODE HERE: CREDENTIALS / EXPERIENCE SLIDES
-                     Edit the text below or duplicate a <div class="carousel-slide exp-slide">
-                     block to add more organizations, internships, or projects.
-                     ========================================================= -->
-                <div id="exp-slides-container" class="min-h-[250px] flex items-center">
-                    
-                    <!-- Credential Slide 1: BSIT PUP -->
-                    <div class="carousel-slide exp-slide active w-full">
-                        <div class="bg-slate-950/90 border border-blue-500/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                            <div class="space-y-3 max-w-2xl">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <span class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold">Education</span>
-                                    <span class="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-semibold">GWA: 1.10</span>
-                                    <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">Class Beadle</span>
-                                </div>
-                                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-                                    Bachelor of Science in Information Technology
-                                </h3>
-                                <p class="text-blue-400 font-semibold text-sm sm:text-base flex items-center gap-2">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                    <span>Polytechnic University of the Philippines (PUP) - CCIS</span>
-                                </p>
-                                <p class="text-slate-300 text-sm leading-relaxed">
-                                    Maintaining an outstanding General Weighted Average (GWA) of <strong class="text-white">1.10</strong> while serving as <strong class="text-white">Class Beadle</strong>—coordinating academic schedules, facilitating faculty-student communication, and leading software &amp; web development coursework under the College of Computer and Information Sciences (CCIS).
-                                </p>
-                            </div>
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600/30 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-400 text-4xl shrink-0 self-center md:self-auto">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Credential Slide 2: AWS Cloud Club PUP -->
-                    <div class="carousel-slide exp-slide w-full">
-                        <div class="bg-slate-950/90 border border-blue-500/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                            <div class="space-y-3 max-w-2xl">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <span class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold">Tech Organization</span>
-                                    <span class="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-semibold">Cloud &amp; Web Dev</span>
-                                </div>
-                                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-                                    AWS Cloud Club PUP
-                                </h3>
-                                <p class="text-blue-400 font-semibold text-sm sm:text-base flex items-center gap-2">
-                                    <i class="fa-brands fa-aws"></i>
-                                    <span>Operations Office &amp; Associate in Department of Web Development</span>
-                                </p>
-                                <p class="text-slate-300 text-sm leading-relaxed">
-                                    Collaborating within the Department of Web Development to build and maintain responsive web interfaces for student-led cloud initiatives, while supporting the Operations Office in organizing technical workshops and AWS community events at PUP.
-                                </p>
-                            </div>
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600/30 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-400 text-4xl shrink-0 self-center md:self-auto">
-                                <i class="fa-solid fa-cloud"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Credential Slide 3: GDG on Campus PUP -->
-                    <div class="carousel-slide exp-slide w-full">
-                        <div class="bg-slate-950/90 border border-blue-500/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                            <div class="space-y-3 max-w-2xl">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <span class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold">Developer Community</span>
-                                    <span class="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-semibold">Frontend &amp; Web</span>
-                                </div>
-                                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-                                    GDG on Campus PUP
-                                </h3>
-                                <p class="text-blue-400 font-semibold text-sm sm:text-base flex items-center gap-2">
-                                    <i class="fa-brands fa-google"></i>
-                                    <span>Web Development Cadet</span>
-                                </p>
-                                <p class="text-slate-300 text-sm leading-relaxed">
-                                    Selected as a Web Development Cadet at Google Developer Groups (GDG) on Campus PUP, honing modern frontend and full-stack web engineering workflows, UI/UX best practices, and collaborative project development.
-                                </p>
-                            </div>
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600/30 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-400 text-4xl shrink-0 self-center md:self-auto">
-                                <i class="fa-solid fa-laptop-code"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Credential Slide 4: Famiglia iBITS -->
-                    <div class="carousel-slide exp-slide w-full">
-                        <div class="bg-slate-950/90 border border-blue-500/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                            <div class="space-y-3 max-w-2xl">
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <span class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold">Academic Organization</span>
-                                    <span class="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300 text-xs font-semibold">Committee Member</span>
-                                </div>
-                                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-                                    Famiglia iBITS (Institute of Bachelors in Information Technology Studies)
-                                </h3>
-                                <p class="text-blue-400 font-semibold text-sm sm:text-base flex items-center gap-2">
-                                    <i class="fa-solid fa-users-gear"></i>
-                                    <span>Education and Training Committee Member</span>
-                                </p>
-                                <p class="text-slate-300 text-sm leading-relaxed">
-                                    Active member of the Education and Training Committee, assisting in organizing peer tutorials, coding bootcamps, and educational resources tailored for BSIT students at PUP.
-                                </p>
-                            </div>
-                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600/30 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-400 text-4xl shrink-0 self-center md:self-auto">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- EXPERIENCE CAROUSEL CONTROLS -->
-                <div class="mt-6 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
-                    <button type="button" id="exp-prev-btn" 
-                            class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-semibold text-sm border border-blue-500/40 transition flex items-center gap-2 blue-glow-hover">
-                        <i class="fa-solid fa-chevron-left"></i>
-                        <span>Prev</span>
-                    </button>
-
-                    <!-- Dynamic Dot Indicators -->
-                    <div id="exp-indicators" class="flex items-center gap-2"></div>
-
-                    <button type="button" id="exp-next-btn" 
-                            class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm border border-blue-400 transition flex items-center gap-2 shadow-lg shadow-blue-600/30">
-                        <span>Next</span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- =====================================================================
-         5. CONTACT INFORMATION FOOTER (#contact) - AT THE VERY BOTTOM
-         ===================================================================== -->
-    <footer id="contact" class="scroll-mt-24 bg-[#07090e] border-t border-blue-500/30 mt-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Profile Picture & Live Drag-and-Drop Area -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative group cursor-pointer" id="avatar-dropzone" title="Drag & Drop a new image or click to replace">
+            <!-- Neon Glow Ring -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-indigo-600 rounded-full blur-md opacity-75 group-hover:opacity-100 transition duration-500 group-hover:scale-105"></div>
             
-            <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Get In Touch</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Let's Connect &amp; Collaborate</h2>
-                <p class="text-sm text-slate-400">
-                    Reach out through any of my social channels or send me a direct email below.
-                </p>
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-brand-black bg-brand-card">
+              <!-- HARDCODED PROFILE IMAGE HERE -->
+              <img id="profile-preview" 
+                   src="WHITE BG NETAD.png" 
+                   alt="Lucky De Castro" 
+                   class="w-full h-full object-cover rounded-full transition duration-300 group-hover:opacity-40">
+              
+              <!-- Hover Overlay for Drag/Drop -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-black/60 text-center p-4">
+                <i class="fa-solid fa-cloud-arrow-up text-3xl text-blue-400 mb-2 animate-bounce"></i>
+                <span class="text-xs font-semibold uppercase tracking-wider text-white">Drag & Drop Image</span>
+                <span class="text-[10px] text-slate-400 mt-1">or click to change</span>
+              </div>
             </div>
 
-            <!-- =========================================================
-                 HARDCODE HERE: SOCIAL LINKS & EMAIL ADDRESS
-                 Update the href="..." attributes on the 4 links below with your exact
-                 LinkedIn URL, Facebook URL, Instagram URL, and Email address.
-                 ========================================================= -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <!-- 1. LinkedIn Link -->
-                <!-- HARDCODE HERE: Replace href with your exact LinkedIn profile URL -->
-                <a href="https://www.linkedin.com/in/lucky-christian-de-castro" 
-                   target="_blank" rel="noopener noreferrer"
-                   class="bg-[#111827] border border-blue-500/30 rounded-2xl p-4 flex items-center gap-4 transition duration-200 blue-glow-hover group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition text-xl shrink-0">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <span class="text-xs text-slate-400 block">LinkedIn</span>
-                        <span class="text-sm font-bold text-white truncate block">Lucky Christian De Castro</span>
-                    </div>
-                </a>
+            <input type="file" id="profile-input" accept="image/*" class="hidden">
+          </div>
 
-                <!-- 2. Facebook Link -->
-                <!-- HARDCODE HERE: Facebook URL -->
-                <a href="https://facebook.com/luckychristian.decastro" 
-                   target="_blank" rel="noopener noreferrer"
-                   class="bg-[#111827] border border-blue-500/30 rounded-2xl p-4 flex items-center gap-4 transition duration-200 blue-glow-hover group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition text-xl shrink-0">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <span class="text-xs text-slate-400 block">Facebook</span>
-                        <span class="text-sm font-bold text-white truncate block">@luckychristian.decastro</span>
-                    </div>
-                </a>
-
-                <!-- 3. Instagram Link -->
-                <!-- HARDCODE HERE: Instagram URL -->
-                <a href="https://instagram.com/deluxx__13" 
-                   target="_blank" rel="noopener noreferrer"
-                   class="bg-[#111827] border border-blue-500/30 rounded-2xl p-4 flex items-center gap-4 transition duration-200 blue-glow-hover group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition text-xl shrink-0">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <span class="text-xs text-slate-400 block">Instagram</span>
-                        <span class="text-sm font-bold text-white truncate block">@deluxx__13</span>
-                    </div>
-                </a>
-
-                <!-- 4. Email Link -->
-                <!-- HARDCODE HERE: Replace your.email@example.com with your real email -->
-                <a href="mailto:your.email@example.com" 
-                   class="bg-[#111827] border border-blue-500/30 rounded-2xl p-4 flex items-center gap-4 transition duration-200 blue-glow-hover group">
-                    <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition text-xl shrink-0">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <span class="text-xs text-slate-400 block">Email Address</span>
-                        <span class="text-sm font-bold text-white truncate block">your.email@example.com</span>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- Bottom Copyright & Back to Top -->
-            <div class="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-                <p>© 2026 Lucky Christian B. De Castro. All rights reserved.</p>
-                <a href="#profile" class="text-blue-400 hover:text-blue-300 font-semibold flex items-center gap-1.5 transition">
-                    <span>Back to Top</span>
-                    <i class="fa-solid fa-arrow-up"></i>
-                </a>
-            </div>
-
+          <div class="mt-4 flex items-center gap-2 text-xs text-slate-400 bg-blue-950/40 border border-blue-900/40 px-3 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Profile Picture Loaded
+          </div>
         </div>
-    </footer>
 
-    <!-- =====================================================================
-         JAVASCRIPT LOGIC: DRAG-AND-DROP & DUAL CAROUSELS
-         ===================================================================== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Helper: Show non-intrusive toast message
-            const toast = document.getElementById('toast-notification');
-            const toastMsg = document.getElementById('toast-message');
-            let toastTimeout;
+        <!-- Bio / Introduction -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-600/40 text-blue-400 text-xs font-semibold uppercase tracking-widest">
+            Welcome to my portfolio
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Hi, I'm <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-blue-600 bg-clip-text text-transparent">Lucky De Castro</span>
+          </h1>
+          <p class="text-lg text-slate-300 max-w-2xl font-light leading-relaxed">
+            Information Technology student and aspiring developer passionate about cloud infrastructure, modern web development, and digital automation. Explore my certificates and credentials below.
+          </p>
 
-            function showToast(message) {
-                toastMsg.textContent = message;
-                toast.classList.remove('hidden');
-                clearTimeout(toastTimeout);
-                toastTimeout = setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, 3200);
-            }
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#certificates" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-600/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+              <i class="fa-solid fa-award"></i> View Certificates
+            </a>
+            <a href="#contact" class="px-6 py-3 rounded-xl bg-brand-card hover:bg-brand-cardLight border border-blue-800/60 text-slate-200 font-semibold transition-all duration-300 flex items-center gap-2">
+              <i class="fa-solid fa-envelope"></i> Get in Touch
+            </a>
+          </div>
+        </div>
 
-            /* -----------------------------------------------------------------
-               1. PROFILE PICTURE DRAG & DROP + CLICK UPLOAD
-               ----------------------------------------------------------------- */
-            const profileDropZone = document.getElementById('profile-drop-zone');
-            const profileFileInput = document.getElementById('profile-file-input');
-            const profilePreview = document.getElementById('profile-preview');
+      </div>
+    </div>
+  </section>
 
-            // Click circle to open file browser
-            profileDropZone.addEventListener('click', () => {
-                profileFileInput.click();
-            });
+  <!-- ========================================== -->
+  <!-- 3. CERTIFICATES SECTION                    -->
+  <!-- ========================================== -->
+  <section id="certificates" class="py-24 bg-gradient-to-b from-brand-black via-[#091122] to-brand-black border-t border-blue-950/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-blue-400">Achievements</h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Certificates & Licenses</h3>
+        <p class="text-slate-400 text-sm">
+          Browse through my verified credentials or use the interactive uploader below to preview certificates instantly.
+        </p>
+      </div>
 
-            // File selected via browser dialog
-            profileFileInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                    updateProfilePhoto(e.target.files[0]);
-                }
-            });
+      <!-- Drag & Drop Zone for Certificates -->
+      <div class="max-w-3xl mx-auto mb-10">
+        <div id="cert-dropzone" class="border-2 border-dashed border-blue-600/40 hover:border-blue-400 rounded-2xl p-6 text-center bg-brand-card/50 hover:bg-blue-950/20 transition-all duration-300 cursor-pointer group">
+          <i class="fa-solid fa-file-arrow-up text-3xl text-blue-400 group-hover:scale-110 transition-transform mb-2"></i>
+          <p class="text-sm font-semibold text-white">Drag & drop certificate image here</p>
+          <p class="text-xs text-slate-400 mt-1">PNG, JPG, or WEBP (or click to browse)</p>
+          <input type="file" id="cert-input" accept="image/*" class="hidden">
+        </div>
+      </div>
 
-            // Drag events over profile circle
-            ['dragenter', 'dragover'].forEach(eventName => {
-                profileDropZone.addEventListener(eventName, (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    profileDropZone.classList.add('drag-over');
-                });
-            });
+      <!-- Carousel Container -->
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Overflow Wrapper -->
+        <div class="overflow-hidden rounded-3xl border border-blue-900/50 bg-brand-card p-4 sm:p-8 neon-border shadow-2xl">
+          <div id="cert-carousel-track" class="flex transition-transform duration-500 ease-out">
 
-            ['dragleave', 'drop'].forEach(eventName => {
-                profileDropZone.addEventListener(eventName, (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    profileDropZone.classList.remove('drag-over');
-                });
-            });
+            <!-- SLIDE 1 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-brand-black/70 border border-blue-900/40 rounded-2xl overflow-hidden p-4">
+                <div class="h-64 sm:h-96 w-full rounded-xl bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1589330694653-dad6ef0140be?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Workato Foundations Certificate" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h4 class="text-lg font-bold text-white">Workato Foundations - Level 1 & 2</h4>
+                    <p class="text-xs text-blue-400">Workato Automation Institute</p>
+                  </div>
+                  <span class="text-xs bg-blue-900/40 border border-blue-600/40 px-3 py-1 rounded-full text-blue-300 w-fit">Automation</span>
+                </div>
+              </div>
+            </div>
 
-            // Drop file on profile circle
-            profileDropZone.addEventListener('drop', (e) => {
-                const files = e.dataTransfer.files;
-                if (files && files[0]) {
-                    updateProfilePhoto(files[0]);
-                }
-            });
+            <!-- SLIDE 2 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-brand-black/70 border border-blue-900/40 rounded-2xl overflow-hidden p-4">
+                <div class="h-64 sm:h-96 w-full rounded-xl bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Networking Basics Certificate" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h4 class="text-lg font-bold text-white">Networking Basics</h4>
+                    <p class="text-xs text-blue-400">Cisco Networking Academy</p>
+                  </div>
+                  <span class="text-xs bg-blue-900/40 border border-blue-600/40 px-3 py-1 rounded-full text-blue-300 w-fit">Networking</span>
+                </div>
+              </div>
+            </div>
 
-            function updateProfilePhoto(file) {
-                if (!file.type.startsWith('image/')) {
-                    showToast('Please drop a valid image file (.jpg, .png, .webp).');
-                    return;
-                }
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    profilePreview.src = event.target.result;
-                    showToast('Profile picture updated!');
-                };
-                reader.readAsDataURL(file);
-            }
-
-            /* -----------------------------------------------------------------
-               2. CERTIFICATES CAROUSEL + DRAG & DROP UPLOADER
-               ----------------------------------------------------------------- */
-            const certSlidesContainer = document.getElementById('cert-slides-container');
-            const certPrevBtn = document.getElementById('cert-prev-btn');
-            const certNextBtn = document.getElementById('cert-next-btn');
-            const certIndicators = document.getElementById('cert-indicators');
-            const certCounterBadge = document.getElementById('cert-counter-badge');
-
-            let currentCertIndex = 0;
-
-            function getCertSlides() {
-                return certSlidesContainer.querySelectorAll('.carousel-slide');
-            }
-
-            function renderCertCarousel() {
-                const slides = getCertSlides();
-                const total = slides.length;
-
-                if (currentCertIndex >= total) currentCertIndex = 0;
-                if (currentCertIndex < 0) currentCertIndex = total - 1;
-
-                slides.forEach((slide, idx) => {
-                    slide.classList.toggle('active', idx === currentCertIndex);
-                });
-
-                // Update top counter badge
-                certCounterBadge.textContent = `Certificate ${currentCertIndex + 1} of ${total}`;
-
-                // Rebuild dot indicators
-                certIndicators.innerHTML = '';
-                slides.forEach((_, idx) => {
-                    const dot = document.createElement('button');
-                    dot.type = 'button';
-                    dot.setAttribute('aria-label', `Go to certificate ${idx + 1}`);
-                    dot.className = idx === currentCertIndex
-                        ? 'w-7 h-2.5 rounded-full bg-blue-500 transition-all duration-300 shadow-sm shadow-blue-400'
-                        : 'w-2.5 h-2.5 rounded-full bg-slate-700 hover:bg-blue-400/60 transition-all duration-300';
-                    dot.addEventListener('click', () => {
-                        currentCertIndex = idx;
-                        renderCertCarousel();
-                    });
-                    certIndicators.appendChild(dot);
-                });
-            }
-
-            certPrevBtn.addEventListener('click', () => {
-                currentCertIndex--;
-                renderCertCarousel();
-            });
-
-            certNextBtn.addEventListener('click', () => {
-                currentCertIndex++;
-                renderCertCarousel();
-            });
-
-            // Drag & Drop Certificate Zone Logic
-            const certDropZone = document.getElementById('cert-drop-zone');
-            const certFileInput = document.getElementById('cert-file-input');
-            const certBrowseBtn = document.getElementById('cert-browse-btn');
-            const certUploadMode = document.getElementById('cert-upload-mode');
-            const customCertTitle = document.getElementById('custom-cert-title');
-
-            certBrowseBtn.addEventListener('click', () => {
-                certFileInput.click();
-            });
-
-            certFileInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files.length > 0) {
-                    handleCertificateFiles(e.target.files);
-                    certFileInput.value = '';
-                }
-            });
-
-            ['dragenter', 'dragover'].forEach(eventName => {
-                certDropZone.addEventListener(eventName, (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    certDropZone.classList.add('drag-over');
-                });
-            });
-
-            ['dragleave', 'drop'].forEach(eventName => {
-                certDropZone.addEventListener(eventName, (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    certDropZone.classList.remove('drag-over');
-                });
-            });
-
-            certDropZone.addEventListener('drop', (e) => {
-                const files = e.dataTransfer.files;
-                if (files && files.length > 0) {
-                    handleCertificateFiles(files);
-                }
-            });
-
-            function handleCertificateFiles(files) {
-                const mode = certUploadMode.value;
-                Array.from(files).forEach((file) => {
-                    if (!file.type.startsWith('image/')) {
-                        showToast('Skipped non-image file. Please drop an image.');
-                        return;
-                    }
-
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const imgDataUrl = event.target.result;
-                        const cleanFileName = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
-                        const titleText = customCertTitle.value.trim() || cleanFileName || 'Uploaded Certificate';
-
-                        if (mode === 'replace') {
-                            // Replace currently active certificate slide
-                            const slides = getCertSlides();
-                            const activeSlide = slides[currentCertIndex];
-                            if (activeSlide) {
-                                const imgEl = activeSlide.querySelector('img');
-                                const titleEl = activeSlide.querySelector('h3');
-                                if (imgEl) imgEl.src = imgDataUrl;
-                                if (titleEl && customCertTitle.value.trim()) {
-                                    titleEl.textContent = titleText;
-                                }
-                                showToast(`Replaced Certificate #${currentCertIndex + 1}!`);
-                            }
-                        } else {
-                            // Add a brand-new slide to the carousel and jump to it
-                            const newSlide = document.createElement('div');
-                            newSlide.className = 'carousel-slide w-full';
-                            newSlide.innerHTML = `
-                                <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                                    <div class="lg:col-span-3 bg-slate-900 rounded-xl overflow-hidden border border-blue-500/30 shadow-lg flex items-center justify-center h-64 sm:h-80">
-                                        <img src="${imgDataUrl}" alt="${titleText}" class="w-full h-full object-contain p-2">
-                                    </div>
-                                    <div class="lg:col-span-2 space-y-3 text-left">
-                                        <div class="inline-block px-3 py-1 rounded-lg bg-blue-600/20 text-blue-400 text-xs font-semibold">
-                                            Uploaded Certificate
-                                        </div>
-                                        <h3 class="text-xl sm:text-2xl font-bold text-white">${titleText}</h3>
-                                        <p class="text-sm text-slate-300 leading-relaxed">
-                                            Added via Drag-and-Drop Certificate Uploader. Click Next or Prev to cycle through all certificates in your portfolio.
-                                        </p>
-                                        <div class="pt-2 border-t border-slate-800 text-xs text-slate-400 space-y-1">
-                                            <div><strong class="text-slate-200">File:</strong> ${file.name}</div>
-                                            <div><strong class="text-slate-200">Recipient:</strong> Lucky Christian B. De Castro</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                            certSlidesContainer.appendChild(newSlide);
-                            currentCertIndex = getCertSlides().length - 1;
-                            renderCertCarousel();
-                            showToast(`Added "${titleText}" to Carousel!`);
-                        }
-                        customCertTitle.value = '';
-                    };
-                    reader.readAsDataURL(file);
-                });
-            }
-
-            /* -----------------------------------------------------------------
-               3. CREDENTIALS / EXPERIENCE CAROUSEL
-               ----------------------------------------------------------------- */
-            const expSlides = document.querySelectorAll('.exp-slide');
-            const expPrevBtn = document.getElementById('exp-prev-btn');
-            const expNextBtn = document.getElementById('exp-next-btn');
-            const expIndicators = document.getElementById('exp-indicators');
-            const expCounterBadge = document.getElementById('exp-counter-badge');
-
-            let currentExpIndex = 0;
-
-            function renderExpCarousel() {
-                const total = expSlides.length;
-                if (currentExpIndex >= total) currentExpIndex = 0;
-                if (currentExpIndex < 0) currentExpIndex = total - 1;
-
-                expSlides.forEach((slide, idx) => {
-                    slide.classList.toggle('active', idx === currentExpIndex);
-                });
-
-                expCounterBadge.textContent = `Credential ${currentExpIndex + 1} of ${total}`;
-
-                expIndicators.innerHTML = '';
-                expSlides.forEach((_, idx) => {
-                    const dot = document.createElement('button');
-                    dot.type = 'button';
-                    dot.setAttribute('aria-label', `Go to credential ${idx + 1}`);
-                    dot.className = idx === currentExpIndex
-                        ? 'w-7 h-2.5 rounded-full bg-blue-500 transition-all duration-300 shadow-sm shadow-blue-400'
-                        : 'w-2.5 h-2.5 rounded-full bg-slate-700 hover:bg-blue-400/60 transition-all duration-300';
-                    dot.addEventListener('click', () => {
-                        currentExpIndex = idx;
-                        renderExpCarousel();
-                    });
-                    expIndicators.appendChild(dot);
-                });
-            }
-
-            expPrevBtn.addEventListener('click', () => {
-                currentExpIndex--;
-                renderExpCarousel();
-            });
-
-            expNextBtn.addEventListener('click', () => {
-                currentExpIndex++;
-                renderExpCarousel();
-            });
-
-            // Initialize both carousels on page load
-            renderCertCarousel();
-            renderExpCarousel();
-        });
-    </script>
-</body>
-</html>
+            <!-- SLIDE 3 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-brand-black/70 border border-blue-900/40 rounded-2xl overflow-hidden p-4">
+                <div class="h-64 sm:h-96 w-full rounded-xl bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Web Development Certificate" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h4 class="text-lg font-bold text-white">Cloud & Web Development Specialist</h4>
+                    <p class="text-xs text-blue-40
