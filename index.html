@@ -60,4 +60,573 @@
       
       <!-- Brand Logo / Badge -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-11
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center font-extrabold text-white text-lg shadow-lg shadow-blue-600/30 group-hover:scale-105 transition-transform">
+          LC
+        </div>
+        <div>
+          <span class="block text-base font-bold text-white tracking-wide leading-tight">Lucky Christian</span>
+          <span class="block text-xs text-blue-400 font-medium">BSIT Portfolio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Shortcut Buttons -->
+      <nav class="hidden md:flex items-center gap-2 bg-[#091024]/80 p-1.5 rounded-2xl border border-blue-900/50 shadow-inner">
+        <a href="#hero" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-blue-900/50 rounded-xl transition-all">
+          <i class="fa-solid fa-user text-blue-400"></i> Profile
+        </a>
+        <a href="#certificates" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-blue-900/50 rounded-xl transition-all">
+          <i class="fa-solid fa-certificate text-blue-400"></i> Certificates
+        </a>
+        <a href="#credentials" class="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-blue-900/50 rounded-xl transition-all">
+          <i class="fa-solid fa-briefcase text-blue-400"></i> Credentials
+        </a>
+        <a href="#contact" class="flex items-center gap-2 px-5 py-2 text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all shadow-md shadow-blue-600/30">
+          <i class="fa-solid fa-paper-plane"></i> Contact Info
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-toggle" class="md:hidden text-slate-300 hover:text-white p-2">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-dropdown" class="hidden md:hidden bg-[#091024] border-b border-blue-900/50 px-4 py-4 space-y-2">
+      <a href="#hero" class="mobile-link block px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Profile</a>
+      <a href="#certificates" class="mobile-link block px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Certificates</a>
+      <a href="#credentials" class="mobile-link block px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Credentials</a>
+      <a href="#contact" class="mobile-link block px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-blue-900/40 rounded-lg">Contact Info</a>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO / PROFILE SECTION (Matching Screenshot)-->
+  <!-- ========================================== -->
+  <section id="hero" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto rounded-3xl border border-blue-900/50 bg-gradient-to-b from-[#0a142e]/80 via-[#070e22]/90 to-[#040812] p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+      
+      <!-- Subtle top blue spotlight glow -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+        
+        <!-- Profile Picture & Dropzone (Left Column) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative group cursor-pointer" id="avatar-dropzone" title="Drag & drop new image or click to replace">
+            
+            <!-- Neon Glow Ring -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-indigo-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500"></div>
+            
+            <!-- Circular Frame with Dashed Border -->
+            <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden border-2 border-dashed border-blue-500/80 bg-[#060c1d] flex items-center justify-center p-1.5 shadow-2xl">
+              
+              <!-- HARDCODED PROFILE PICTURE (Exact file name loaded) -->
+              <img id="profile-img" 
+                   src="WHITE%20BG%20NETAD.png" 
+                   alt="Lucky Christian B. De Castro" 
+                   class="w-full h-full object-cover rounded-full transition duration-300 group-hover:opacity-30"
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x400/0f172a/38bdf8?text=Lucky+De+Castro';">
+              
+              <!-- Hover Overlay for Drag & Drop -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#040812]/75 text-center p-4">
+                <i class="fa-solid fa-cloud-arrow-up text-3xl text-blue-400 mb-2 animate-bounce"></i>
+                <span class="text-xs font-bold uppercase tracking-wider text-white">Drop Image Here</span>
+                <span class="text-[10px] text-slate-300 mt-1">or click to change file</span>
+              </div>
+            </div>
+
+            <input type="file" id="profile-file-input" accept="image/*" class="hidden">
+          </div>
+
+          <!-- Bottom Micro Badge -->
+          <button id="trigger-upload-btn" class="mt-4 flex items-center gap-2 text-xs text-slate-400 hover:text-white bg-blue-950/40 hover:bg-blue-900/40 border border-blue-800/40 px-3.5 py-1.5 rounded-full transition-all">
+            <i class="fa-solid fa-upload text-[10px] text-blue-400"></i> Drop image inside circle or click to change
+          </button>
+        </div>
+
+        <!-- Details / Copywriting (Right Column - Matching Screenshot) -->
+        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+          
+          <!-- Status Tag -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/50 text-blue-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            AVAILABLE FOR OPPORTUNITIES & COLLABORATIONS
+          </div>
+
+          <!-- Name Heading -->
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Lucky Christian B. De Castro
+          </h1>
+
+          <!-- Role Subtitle -->
+          <p class="text-base sm:text-lg font-mono font-medium text-blue-400">
+            &lt;/&gt; BSIT Student & Web Developer
+          </p>
+
+          <!-- Bio -->
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
+            Passionate Bachelor of Science in Information Technology student at the <strong class="text-white font-semibold">Polytechnic University of the Philippines (PUP)</strong> with a strong academic record (GWA: 1.10). Actively building modern web applications and contributing to tech communities including AWS Cloud Club PUP, GDG on Campus PUP, and Famiglia iBITS.
+          </p>
+
+          <!-- 3 Stat Cards from Screenshot -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3">
+            <div class="bg-[#070e22] border border-blue-900/50 p-3.5 rounded-xl text-center sm:text-left">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">University</span>
+              <span class="text-sm font-bold text-white mt-0.5 block">PUP - CCIS</span>
+            </div>
+
+            <div class="bg-[#070e22] border border-blue-900/50 p-3.5 rounded-xl text-center sm:text-left">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Academic Standing</span>
+              <span class="text-sm font-bold text-blue-400 mt-0.5 block">1.10 GWA (President's Lister)</span>
+            </div>
+
+            <div class="bg-[#070e22] border border-blue-900/50 p-3.5 rounded-xl text-center sm:text-left">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Focus</span>
+              <span class="text-sm font-bold text-white mt-0.5 block">Web Dev & Cloud</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. CERTIFICATES SECTION                    -->
+  <!-- ========================================== -->
+  <section id="certificates" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-950/50">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Accomplishments</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Certificates & Licenses</h2>
+        </div>
+        <p class="text-xs text-slate-400 max-w-sm">
+          Interactive carousel. Drag and drop any image into the box below to preview your own certificate dynamically!
+        </p>
+      </div>
+
+      <!-- Drag & Drop Uploader -->
+      <div id="cert-dropzone" class="mb-8 border-2 border-dashed border-blue-900/80 hover:border-blue-500 rounded-2xl p-5 text-center bg-[#070e22]/60 hover:bg-blue-950/20 transition-all cursor-pointer group">
+        <i class="fa-solid fa-file-arrow-up text-2xl text-blue-400 mb-1 group-hover:scale-110 transition-transform"></i>
+        <p class="text-sm font-semibold text-white">Drag & drop certificate image here (or click to browse)</p>
+        <span class="text-[11px] text-slate-400">PNG, JPG, or WEBP</span>
+        <input type="file" id="cert-file-input" accept="image/*" class="hidden">
+      </div>
+
+      <!-- Carousel -->
+      <div class="relative">
+        <div class="overflow-hidden rounded-2xl border border-blue-900/50 bg-[#070e22] p-4 sm:p-6 shadow-xl">
+          <div id="cert-track" class="flex transition-transform duration-500 ease-out">
+
+            <!-- SLIDE 1 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2">
+              <div class="bg-[#040812] border border-blue-900/40 rounded-xl overflow-hidden p-4">
+                <div class="h-64 sm:h-80 w-full rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1589330694653-dad6ef0140be?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Workato Foundations Certificate" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h3 class="text-lg font-bold text-white">Workato Foundations - Level 1 & 2</h3>
+                    <p class="text-xs text-blue-400">Workato Automation Institute</p>
+                  </div>
+                  <span class="text-xs bg-blue-950 border border-blue-800/60 text-blue-300 px-3 py-1 rounded-full w-fit">Automation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2">
+              <div class="bg-[#040812] border border-blue-900/40 rounded-xl overflow-hidden p-4">
+                <div class="h-64 sm:h-80 w-full rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Networking Basics Certificate" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h3 class="text-lg font-bold text-white">Networking Basics</h3>
+                    <p class="text-xs text-blue-400">Cisco Networking Academy</p>
+                  </div>
+                  <span class="text-xs bg-blue-950 border border-blue-800/60 text-blue-300 px-3 py-1 rounded-full w-fit">Networking</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="cert-slide w-full flex-shrink-0 px-2">
+              <div class="bg-[#040812] border border-blue-900/40 rounded-xl overflow-hidden p-4">
+                <div class="h-64 sm:h-80 w-full rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80" 
+                       alt="Web Development Specialist" 
+                       class="w-full h-full object-cover">
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div>
+                    <h3 class="text-lg font-bold text-white">Cloud & Web Development Specialist</h3>
+                    <p class="text-xs text-blue-400">Academic & Community Initiatives</p>
+                  </div>
+                  <span class="text-xs bg-blue-950 border border-blue-800/60 text-blue-300 px-3 py-1 rounded-full w-fit">Cloud & Web</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Next / Prev Controls -->
+        <button id="cert-prev" class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 z-10">
+          <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <button id="cert-next" class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 z-10">
+          <i class="fa-solid fa-chevron-right text-sm"></i>
+        </button>
+
+        <!-- Dots -->
+        <div id="cert-indicators" class="flex justify-center items-center gap-2 mt-5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. CREDENTIALS & EXPERIENCE SECTION        -->
+  <!-- ========================================== -->
+  <section id="credentials" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-950/50">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Background</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Credentials & Experience</h2>
+        </div>
+        <p class="text-xs text-slate-400 max-w-sm">
+          Click next to navigate through academic milestones, leadership roles, and technical project highlights.
+        </p>
+      </div>
+
+      <!-- Experience Carousel -->
+      <div class="relative">
+        <div class="overflow-hidden rounded-2xl border border-blue-900/50 bg-[#070e22] p-6 sm:p-10 shadow-xl">
+          <div id="exp-track" class="flex transition-transform duration-500 ease-out">
+
+            <!-- EXP 1 -->
+            <div class="exp-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-[#040812] border border-blue-900/40 p-6 sm:p-8 rounded-2xl space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800/60">2023 - Present</span>
+                  <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1 text-blue-400"></i> Manila, Philippines</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Bachelor of Science in Information Technology</h3>
+                <p class="text-sm font-medium text-blue-400">Polytechnic University of the Philippines (CCIS)</p>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Focusing on cloud architecture, database management systems, and full-stack software development with an outstanding academic record.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">Class Beadle (BSIT 3-1)</span>
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">1.10 GWA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXP 2 -->
+            <div class="exp-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-[#040812] border border-blue-900/40 p-6 sm:p-8 rounded-2xl space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800/60">Leadership</span>
+                  <span class="text-xs text-slate-400"><i class="fa-solid fa-users mr-1 text-blue-400"></i> Student Communities</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Associate & Web Development Cadet</h3>
+                <p class="text-sm font-medium text-blue-400">AWS Cloud Club PUP & GDG on Campus PUP</p>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Actively contributing to cloud computing workshops, developer meetups, technical bootcamps, and frontend web projects for students.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">Operations Office</span>
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">Skill Builder Department</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXP 3 -->
+            <div class="exp-slide w-full flex-shrink-0 px-2 sm:px-4">
+              <div class="bg-[#040812] border border-blue-900/40 p-6 sm:p-8 rounded-2xl space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-950 text-blue-300 border border-blue-800/60">Development</span>
+                  <span class="text-xs text-slate-400"><i class="fa-solid fa-code mr-1 text-blue-400"></i> Full-Stack Engineering</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Full-Stack Web Development Systems</h3>
+                <p class="text-sm font-medium text-blue-400">PHP, MySQL, Apache & Modern JavaScript</p>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Engineered comprehensive student records management systems featuring full CRUD operations, secure database architecture, and responsive user interfaces.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2">
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">PHP & MySQL</span>
+                  <span class="text-xs bg-blue-950/60 text-slate-300 border border-blue-900 px-2.5 py-1 rounded-md">Responsive Tailwind UI</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Experience Nav Buttons -->
+        <button id="exp-prev" class="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 z-10">
+          <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <button id="exp-next" class="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 z-10">
+          <i class="fa-solid fa-chevron-right text-sm"></i>
+        </button>
+
+        <!-- Exp Indicators -->
+        <div id="exp-indicators" class="flex justify-center items-center gap-2 mt-5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. CONTACT INFORMATION (Footer Links)       -->
+  <!-- ========================================== -->
+  <footer id="contact" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-blue-900/40 bg-[#02050c]">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      
+      <div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Get In Touch</h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">Connect with me across social media or reach out directly via email.</p>
+      </div>
+
+      <!-- Links (LinkedIn, Facebook, Instagram, Email) -->
+      <div class="flex flex-wrap justify-center items-center gap-3">
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#091024] hover:bg-blue-950/60 border border-blue-900/60 text-slate-300 hover:text-white transition-all">
+          <i class="fa-brands fa-linkedin text-blue-400"></i>
+          <span class="text-xs font-semibold">LinkedIn</span>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://facebook.com/luckychristian.decastro" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#091024] hover:bg-blue-950/60 border border-blue-900/60 text-slate-300 hover:text-white transition-all">
+          <i class="fa-brands fa-facebook text-blue-400"></i>
+          <span class="text-xs font-semibold">Facebook</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/deluxx__13" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#091024] hover:bg-blue-950/60 border border-blue-900/60 text-slate-300 hover:text-white transition-all">
+          <i class="fa-brands fa-instagram text-blue-400"></i>
+          <span class="text-xs font-semibold">Instagram</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:lakitiandecastro@gmail.com" 
+           class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md shadow-blue-600/30">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="text-xs font-semibold">lakitiandecastro@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="pt-6 border-t border-blue-950/50 text-slate-500 text-[11px]">
+        © 2026 Lucky Christian B. De Castro • All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT LOGIC                           -->
+  <!-- ========================================== -->
+  <script>
+    // 1. Mobile Menu
+    const mobileBtn = document.getElementById('mobile-toggle');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
+    mobileBtn.addEventListener('click', () => mobileDropdown.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileDropdown.classList.add('hidden'));
+    });
+
+    // 2. Profile Drag & Drop and Click Upload
+    const avatarDropzone = document.getElementById('avatar-dropzone');
+    const triggerUploadBtn = document.getElementById('trigger-upload-btn');
+    const profileFileInput = document.getElementById('profile-file-input');
+    const profileImg = document.getElementById('profile-img');
+
+    avatarDropzone.addEventListener('click', () => profileFileInput.click());
+    triggerUploadBtn.addEventListener('click', () => profileFileInput.click());
+
+    avatarDropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      avatarDropzone.classList.add('scale-105');
+    });
+
+    avatarDropzone.addEventListener('dragleave', () => {
+      avatarDropzone.classList.remove('scale-105');
+    });
+
+    avatarDropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      avatarDropzone.classList.remove('scale-105');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        loadProfileImage(e.dataTransfer.files[0]);
+      }
+    });
+
+    profileFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        loadProfileImage(e.target.files[0]);
+      }
+    });
+
+    function loadProfileImage(file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please drop an image file (PNG, JPG, or WEBP).');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        profileImg.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // 3. Certificates Carousel & Drag/Drop
+    const certTrack = document.getElementById('cert-track');
+    const certPrev = document.getElementById('cert-prev');
+    const certNext = document.getElementById('cert-next');
+    const certIndicators = document.getElementById('cert-indicators');
+    const certDropzone = document.getElementById('cert-dropzone');
+    const certFileInput = document.getElementById('cert-file-input');
+
+    let certIdx = 0;
+
+    function getCertSlides() {
+      return document.querySelectorAll('.cert-slide');
+    }
+
+    function updateCertCarousel() {
+      const slides = getCertSlides();
+      if (certIdx < 0) certIdx = slides.length - 1;
+      if (certIdx >= slides.length) certIdx = 0;
+      certTrack.style.transform = `translateX(-${certIdx * 100}%)`;
+
+      certIndicators.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === certIdx ? 'w-6 bg-blue-500' : 'w-2 bg-slate-700'}`;
+        dot.addEventListener('click', () => {
+          certIdx = i;
+          updateCertCarousel();
+        });
+        certIndicators.appendChild(dot);
+      });
+    }
+
+    certPrev.addEventListener('click', () => {
+      certIdx--;
+      updateCertCarousel();
+    });
+
+    certNext.addEventListener('click', () => {
+      certIdx++;
+      updateCertCarousel();
+    });
+
+    certDropzone.addEventListener('click', () => certFileInput.click());
+    certDropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      certDropzone.classList.add('border-blue-400', 'bg-blue-950/40');
+    });
+    certDropzone.addEventListener('dragleave', () => {
+      certDropzone.classList.remove('border-blue-400', 'bg-blue-950/40');
+    });
+    certDropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      certDropzone.classList.remove('border-blue-400', 'bg-blue-950/40');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        addCertSlide(e.dataTransfer.files[0]);
+      }
+    });
+
+    certFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        addCertSlide(e.target.files[0]);
+      }
+    });
+
+    function addCertSlide(file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please drop an image file (PNG, JPG, or WEBP).');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const newSlide = document.createElement('div');
+        newSlide.className = 'cert-slide w-full flex-shrink-0 px-2';
+        newSlide.innerHTML = `
+          <div class="bg-[#040812] border border-blue-500/50 rounded-xl overflow-hidden p-4 shadow-lg shadow-blue-500/20">
+            <div class="h-64 sm:h-80 w-full rounded-lg bg-slate-900 flex items-center justify-center overflow-hidden">
+              <img src="${e.target.result}" alt="${file.name}" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-white">${file.name.replace(/\.[^/.]+$/, "")}</h3>
+                <p class="text-xs text-blue-400">Custom Uploaded Certificate</p>
+              </div>
+              <span class="text-xs bg-blue-950 border border-blue-500/60 text-blue-300 px-3 py-1 rounded-full w-fit">New Credential</span>
+            </div>
+          </div>
+        `;
+        certTrack.appendChild(newSlide);
+        certIdx = getCertSlides().length - 1;
+        updateCertCarousel();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    updateCertCarousel();
+
+    // 4. Experience Carousel
+    const expTrack = document.getElementById('exp-track');
+    const expPrev = document.getElementById('exp-prev');
+    const expNext = document.getElementById('exp-next');
+    const expIndicators = document.getElementById('exp-indicators');
+    const expSlides = document.querySelectorAll('.exp-slide');
+
+    let expIdx = 0;
+
+    function updateExpCarousel() {
+      if (expIdx < 0) expIdx = expSlides.length - 1;
+      if (expIdx >= expSlides.length) expIdx = 0;
+      expTrack.style.transform = `translateX(-${expIdx * 100}%)`;
+
+      expIndicators.innerHTML = '';
+      expSlides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${i === expIdx ? 'w-6 bg-blue-500' : 'w-2 bg-slate-700'}`;
+        dot.addEventListener('click', () => {
+          expIdx = i;
+          updateExpCarousel();
+        });
+        expIndicators.appendChild(dot);
+      });
+    }
+
+    expPrev.addEventListener('click', () => {
+      expIdx--;
+      updateExpCarousel();
+    });
+
+    expNext.addEventListener('click', () => {
+      expIdx++;
+      updateExpCarousel();
+    });
+
+    updateExpCarousel();
+  </script>
+</body>
+</html>
